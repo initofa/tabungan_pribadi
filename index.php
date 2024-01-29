@@ -12,91 +12,107 @@ $result = mysqli_query($conn, $query);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tabungan pribadi</title>
-    <style>
-        body {
-    font-family: Arial, sans-serif;
-    background-color: #f7f7f7;
-    margin: 0;
-    padding: 0;
+   <style>
+body {
+font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+background-color: #C0C0C0;
+color: #333;
+margin: 0;
+padding: 0;
 }
 
 .container {
     max-width: 800px;
     margin: 0 auto;
     padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 h2 {
-    color: #333;
     font-size: 28px;
     margin-bottom: 20px;
+    color: #333;
+    text-align:center;
 }
 
 a {
     text-decoration: none;
     color: #fff;
-    background-color: #007bff;
+}
+
+a.btn-menabung {
+    background-color: #4caf50;
+    color: #fff;
     padding: 10px 20px;
     border-radius: 5px;
     transition: background-color 0.3s ease;
+    margin-left: 15%; 
 }
 
-a:hover {
-    background-color: #0056b3;
+a.btn-menabung:hover {
+    background-color: #43a047;
 }
 
 table {
-    width: 100%;
     border-collapse: collapse;
     margin-top: 20px;
+    width: 70%;
+    margin: 20px auto; 
+    text-align: center;
 }
 
 table th, table td {
     padding: 10px;
-    border: 1px solid #ddd;
+    border: 2px solid #333;
 }
 
 table th {
-    background-color: #f2f2f2;
+    background-color: #4682B4;
     font-weight: bold;
+    color: #fff;
 }
 
 .action-buttons a {
     margin-right: 5px;
-    padding: 5px 10px;
-    color: #fff;
-    border-radius: 3px;
+    padding: 8px 16px;
+    border-radius: 5px;
     text-decoration: none;
 }
 
 .action-buttons .edit-btn {
-    background-color: #28a745; /* Tombol Edit berwarna hijau */
+    background-color: #FFA500;
+    color: #fff;
 }
 
 .action-buttons .delete-btn {
-    background-color: #dc3545; /* Tombol Delete berwarna merah */
+    background-color: #FF0000;
+    color: #fff;
 }
 
 .action-buttons a:hover {
     opacity: 0.8;
 }
 
-/* Menyesuaikan warna tombol tambahan */
 .additional-buttons .custom-btn {
-    background-color: #6c757d; /* Warna abu-abu untuk tombol tambahan */
+    background-color: #78909c;
+    color: #fff;
+    padding: 8px 16px;
+    border-radius: 5px;
+    text-decoration: none;
 }
 
 .additional-buttons .custom-btn:hover {
     opacity: 0.8;
 }
-
-    </style>
+   </style>
 </head>
 
 <body>
 
 <h2>Tabungan Pribadi</h2>
-<a href="create.php">Menabung</a>
+<a href="create.php" class="btn-menabung">Menabung</a>
 <!-- Tabel untuk menampilkan daftar tabungan -->
 <table border="1">
     <tr>
@@ -124,10 +140,10 @@ table th {
          echo "<td>";
          echo "<div class='action-buttons additional-buttons'>";
          // Tambahkan tombol edit dengan link ke update.php
-         echo "<a href='update.php?id=".$row['id']."'>Edit</a>";
+         echo "<a href='update.php?id=".$row['id']."' class='edit-btn'>Edit</a>";
          echo " | ";
          // Tambahkan tombol delete dengan link ke delete.php
-         echo "<a href='delete.php?id=".$row['id']."' onclick='return confirm(\"Apakah Anda yakin ingin menghapus data?\")'>Delete</a>";
+         echo "<a href='delete.php?id=".$row['id']."' class='delete-btn' onclick='return confirm(\"Apakah Anda yakin ingin menghapus data?\")'>Delete</a>";
          echo "</td>";
          echo "</tr>";
      }

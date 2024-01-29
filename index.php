@@ -61,6 +61,8 @@ table {
     width: 70%;
     margin: 20px auto; 
     text-align: center;
+    background-color: rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(50px);
 }
 
 table th, table td {
@@ -136,7 +138,7 @@ table th {
          echo "<td>".$row['id']."</td>";
          echo "<td>".$row['tanggal']."</td>";
          // Memformat nominal dengan titik sebagai pemisah ribuan
-         echo "<td>".number_format($row['nominal'], 2, ',', '.')."</td>";
+         echo "<td>Rp ".number_format($row['nominal'], 2, ',', '.')."</td>";
          echo "<td>";
          echo "<div class='action-buttons additional-buttons'>";
          // Tambahkan tombol edit dengan link ke update.php
@@ -151,7 +153,7 @@ table th {
      // Menampilkan jumlah total tabungan di baris terakhir
      echo "<tr>";
      echo "<td colspan='2'><strong>Total tabungan anda sekarang</strong></td>";
-     echo "<td><strong>".number_format($total, 2, ',', '.')."</strong></td>";
+     echo "<td><strong>Rp ".number_format($total, 2, ',', '.')."</strong></td>";
      echo "<td></td>";
      echo "</tr>";
     ?>
